@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<DebugType>none</DebugType>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<Il2CppInteropVerbose>true</Il2CppInteropVerbose>
+		<Optimize>True</Optimize>
+		<VersionPrefix>1.2.1</VersionPrefix>
+		<Description>Outfit picker window (fork-in-spirit of whichtwix/OutfitChanger)</Description>
+		<AssemblyName>OutfitPicker</AssemblyName>
+		<RootNamespace>OutfitPicker</RootNamespace>
+	</PropertyGroup>
+
+	<!-- Same package set/versions as StickyColors.csproj, which already builds for you. -->
+	<ItemGroup>
+		<PackageReference Include="AmongUs.GameLibs.Steam" Version="2026.6.5" />
+		<PackageReference Include="BepInEx.IL2CPP.MSBuild" Version="2.1.0-rc.1" PrivateAssets="all" ExcludeAssets="runtime" />
+		<PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.735" ExcludeAssets="runtime;native" />
+	</ItemGroup>
+</Project>

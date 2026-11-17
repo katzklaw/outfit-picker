@@ -1,0 +1,10 @@
+c:\Users\Admin\Desktop\im makin mods LOL\outfit picker\OutfitPicker\bin\Debug\net6.0\OutfitPicker.deps.json
+c:\Users\Admin\Desktop\im makin mods LOL\outfit picker\OutfitPicker\bin\Debug\net6.0\OutfitPicker.dll
+c:\Users\Admin\Desktop\im makin mods LOL\outfit picker\OutfitPicker\obj\Debug\net6.0\OutfitPicker.csproj.AssemblyReference.cache
+c:\Users\Admin\Desktop\im makin mods LOL\outfit picker\OutfitPicker\obj\Debug\net6.0\OutfitPicker.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\Admin\Desktop\im makin mods LOL\outfit picker\OutfitPicker\obj\Debug\net6.0\OutfitPicker.AssemblyInfoInputs.cache
+c:\Users\Admin\Desktop\im makin mods LOL\outfit picker\OutfitPicker\obj\Debug\net6.0\OutfitPicker.AssemblyInfo.cs
+c:\Users\Admin\Desktop\im makin mods LOL\outfit picker\OutfitPicker\obj\Debug\net6.0\OutfitPicker.csproj.CoreCompileInputs.cache
+c:\Users\Admin\Desktop\im makin mods LOL\outfit picker\OutfitPicker\obj\Debug\net6.0\OutfitPicker.dll
+c:\Users\Admin\Desktop\im makin mods LOL\outfit picker\OutfitPicker\obj\Debug\net6.0\refint\OutfitPicker.dll
+c:\Users\Admin\Desktop\im makin mods LOL\outfit picker\OutfitPicker\obj\Debug\net6.0\ref\OutfitPicker.dll
