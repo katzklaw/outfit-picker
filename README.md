@@ -41,6 +41,10 @@ says so). Outside that window it never pushes anything, so `/color` etc. still b
 Set `HoldSeconds = 0` to turn it off. Log lines: `OutfitPicker: your hat/color changed without you
 choosing it` / `re-applying`.
 
+## Mod stamp
+Like the original OutfitChanger, this calls the game's `ShowModStamp()` after `ModManager.LateUpdate`.
+Log: `patched ModManager.LateUpdate (mod stamp)`.
+
 ## StickyColors
 Whenever this mod puts an outfit on you it also writes it into StickyColors' saved outfit (found by
 reflection - no DLL dependency; skipped if StickyColors isn't installed), so StickyColors' round-start

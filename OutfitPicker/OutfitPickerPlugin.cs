@@ -16,7 +16,7 @@ public class OutfitPickerPlugin : BasePlugin
 {
     public const string Id = "dev.vicki.outfitpicker";
     public const string Name = "OutfitPicker";
-    public const string Version = "1.2.1";
+    public const string Version = "1.2.2";
 
     public static OutfitPickerPlugin Instance { get; private set; } = null!;
 
@@ -81,6 +81,22 @@ public class OutfitPickerPlugin : BasePlugin
         TryPatchIntent("RpcSetSkin", typeof(string), nameof(IntentPatches.Skin));
         TryPatchIntent("RpcSetVisor", typeof(string), nameof(IntentPatches.Visor));
         TryPatchIntent("RpcSetNamePlate", typeof(string), nameof(IntentPatches.Plate));
+
+        try
+        {
+            var modManager = AccessTools.TypeByName("ModManager");
+            var lateUpdate = modManager == null ? null : AccessTools.Method(modManager, "LateUpdate");
+            if (lateUpdate == null || AccessTools.Method(modManager, "ShowModStamp") == null)
+            {
+                Log.LogWarning("OutfitPicker: ModManager.LateUpdate/ShowModStamp not found - the mod stamp won't be shown.");
+            }
+            else
+            {
+                Harmony.Patch(lateUpdate, postfix: new HarmonyMethod(typeof(ModStampPatch), nameof(ModStampPatch.Postfix)));
+                Log.LogInfo("OutfitPicker: patched ModManager.LateUpdate (mod stamp).");
+            }
+        }
+        catch (Exception e) { Log.LogWarning($"OutfitPicker: couldn't patch the mod stamp. {e}"); }
 
         TryPatchPrefix("PassiveButtonManager", "Update", nameof(InputBlockPatches.BlockWhileHovering),
             "clicks on the window may also hit game buttons underneath");

@@ -6,7 +6,7 @@
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
 		<Il2CppInteropVerbose>true</Il2CppInteropVerbose>
 		<Optimize>True</Optimize>
-		<VersionPrefix>1.2.1</VersionPrefix>
+		<VersionPrefix>1.2.2</VersionPrefix>
 		<Description>Outfit picker window (fork-in-spirit of whichtwix/OutfitChanger)</Description>
 		<AssemblyName>OutfitPicker</AssemblyName>
 		<RootNamespace>OutfitPicker</RootNamespace>

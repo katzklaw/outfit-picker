@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using HarmonyLib;
 using UnityEngine;
 
@@ -61,4 +62,28 @@ public static class IntentPatches
     public static void Skin(PlayerControl __instance, string __0) { if (Mine(__instance)) OutfitGuard.NoteSkin(__0); }
     public static void Visor(PlayerControl __instance, string __0) { if (Mine(__instance)) OutfitGuard.NoteVisor(__0); }
     public static void Plate(PlayerControl __instance, string __0) { if (Mine(__instance)) OutfitGuard.NotePlate(__0); }
+}
+
+// The mod stamp ("modded" label on the game's screens), same as the original OutfitChanger:
+// after ModManager.LateUpdate, call ModManager.ShowModStamp(). Looked up by name so a renamed
+// game method only logs a warning instead of breaking the build.
+public static class ModStampPatch
+{
+    private static MethodInfo _show;
+    private static bool _warned;
+
+    public static void Postfix(object __instance)
+    {
+        try
+        {
+            _show ??= AccessTools.Method(AccessTools.TypeByName("ModManager"), "ShowModStamp");
+            _show?.Invoke(__instance, null);
+        }
+        catch (Exception e)
+        {
+            if (_warned) return;
+            _warned = true;
+            OutfitPickerPlugin.Instance.Log.LogWarning($"OutfitPicker: ShowModStamp failed (logged once). {e.InnerException?.Message ?? e.Message}");
+        }
+    }
 }
