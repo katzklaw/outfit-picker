@@ -3,6 +3,8 @@
 An in-game window for picking saved Among Us outfits, built on the same `*.amogus`
 files as whichtwix's OutfitChanger. **Replaces OutfitChanger - don't run both.**
 
+https://github.com/user-attachments/assets/0b9b198d-89ee-4d9b-82f8-e13b066d1772
+
 ## Use
 - **F6** (configurable) in the lobby opens/closes the window. Drag the title bar to move it.
 - **Wear** applies an outfit. **Rename** renames the file (the file name is the outfit name).
@@ -26,12 +28,15 @@ files as whichtwix's OutfitChanger. **Replaces OutfitChanger - don't run both.**
 - The list shows a page of tiles at a time: mouse wheel over the list, or the Prev/Next buttons.
 - Left/Right arrows still cycle outfits while the cosmetics menu is open (`ArrowKeysCycle`).
 
+You can generate configs, and grab screenshots, either in game, or with [Crewmate Closet](https://katzklaw.github.io/artysus/CrewmateCloset.html). 
+The files generated from this website are in the correct format to drop directly into the outfits folder and use as is.
+
 ## Config (`BepInEx/config/dev.vicki.outfitpicker.cfg`)
 `OutfitFolder`, `OpenWindow` (any UnityEngine KeyCode), `ArrowKeysCycle`,
 `UiScale`, `HoldSeconds`, `ShowPictures`, `PictureMethod`.
 
 Outfits never change your player name (the game kicks for that). The `name` stored
-inside old files is simply ignored.
+inside the files is for informational purposes only and is simply ignored.
 
 ## Outfit hold (non-host fix)
 For `HoldSeconds` (default 20) after you wear an outfit, enter a lobby, or the player count changes
@@ -53,19 +58,5 @@ restore puts back THIS outfit instead of an old one. Log: `told StickyColors to 
 (`CmdCheckColor` + `RpcSetHat/Pet/Skin/Visor/NamePlate`), which StickyColors already watches.
 The window only works in the lobby, matching StickyColors' `InLobby` rule.
 
-## Build
-Same as StickyColors: `dotnet build -c Release`, copy `bin/Release/net6.0/OutfitPicker.dll`
-to `BepInEx/plugins` and remove `OutfitChanger.dll`.
 
-## If the window is blank or broken
-This game build has parts of Unity's IMGUI stripped out, so the window only uses the most basic
-drawing calls and draws its own buttons/text boxes. On first open it logs an `IMGUI probe` line
-listing what works and what doesn't - send that line if anything is still wrong.
-
-## If the build complains
-Not compiled against the game libs by the author. Likeliest spots:
-- `NetworkedPlayerInfo.PlayerOutfit` field names in `OutfitStore.CaptureCurrent`
-  (`PlayerName`, `ColorId`, `HatId`, `PetId`, `SkinId`, `VisorId`, `NamePlateId`).
-- `ImageConversion.LoadImage` in `Thumbs.cs` (picture loading)
-- `PreviewArea.UpdateFromLocalPlayer` / `PlayerMaterial.MaskType` in `Patches.cs`.
-Check the log for `FAILED to patch` / `not found` lines too.
+**This mod is not affiliated with Among Us or Innersloth LLC, and the content contained therein is not endorsed or otherwise sponsored by Innersloth LLC. Portions of the materials contained herein are property of Innersloth LLC. © Innersloth LLC.**
